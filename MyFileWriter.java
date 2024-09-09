@@ -3,6 +3,11 @@ import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
 
 public class MyFileWriter {
+    public static void printFileSize (String fileName) {
+        File file = new File (fileName);
+        System.out.print(file.length());
+    }
+
     public static void main(String[] args) {
         String data = "Hello, World!";
         String fileName1 = "example1.txt";
@@ -12,20 +17,21 @@ public class MyFileWriter {
         String fileName5 = "example5.txt";
 
         // 1. Using FileWriter
-        try (FileWriter writer = new FileWriter(fileName1)) {
-            writer.write(data);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // try (FileWriter writer = new FileWriter(fileName1)) {
+        //     writer.write(data);
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
 
         // 2. Using BufferedWriter
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName2))) {
-            bufferedWriter.write(data);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName2))) {
+        //     bufferedWriter.write(data);
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
 
         File root = new File ("BrodyIsSoCool");
+        root.mkdirs();
         File secretPassword = new File (root, ".brodyHiddenPassword.txt");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(secretPassword))) {
             bw.write("NobodyWillGuessThis69");
@@ -35,9 +41,10 @@ public class MyFileWriter {
         }
 
         File repo = new File ("BrodyIsSoCool");
+        repo.mkdirs();
         File newDir = new File (repo, ".brodyHiddenFolder");
-        File hiddenData = new File (newDir, "hiddenStuff.dat");
         newDir.mkdirs();
+        File hiddenData = new File (newDir, "hiddenStuff.dat");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(hiddenData))) {
             bw.write("Nobody can find this or the rizzler will die.");
         }
@@ -46,24 +53,24 @@ public class MyFileWriter {
         }
 
         // 3. Using FileOutputStream
-        try (FileOutputStream outputStream = new FileOutputStream(fileName3)) {
-            outputStream.write(data.getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // try (FileOutputStream outputStream = new FileOutputStream(fileName3)) {
+        //     outputStream.write(data.getBytes());
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
 
-        // 4. Using BufferedOutputStream
-        try (BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(fileName4))) {
-            bufferedOutputStream.write(data.getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // // 4. Using BufferedOutputStream
+        // try (BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(fileName4))) {
+        //     bufferedOutputStream.write(data.getBytes());
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
 
-        // 5. Using Files (java.nio.file)
-        try {
-            Files.write(Paths.get(fileName5), data.getBytes(StandardCharsets.UTF_8));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // // 5. Using Files (java.nio.file)
+        // try {
+        //     Files.write(Paths.get(fileName5), data.getBytes(StandardCharsets.UTF_8));
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
     }
 }
