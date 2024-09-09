@@ -25,6 +25,26 @@ public class MyFileWriter {
             e.printStackTrace();
         }
 
+        File root = new File ("BrodyIsSoCool");
+        File secretPassword = new File (root, ".brodyHiddenPassword.txt");
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(secretPassword))) {
+            bw.write("NobodyWillGuessThis69");
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        File repo = new File ("BrodyIsSoCool");
+        File newDir = new File (repo, ".brodyHiddenFolder");
+        File hiddenData = new File (newDir, "hiddenStuff.dat");
+        newDir.mkdirs();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(hiddenData))) {
+            bw.write("Nobody can find this or the rizzler will die.");
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
         // 3. Using FileOutputStream
         try (FileOutputStream outputStream = new FileOutputStream(fileName3)) {
             outputStream.write(data.getBytes());
