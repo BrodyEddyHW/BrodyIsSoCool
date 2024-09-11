@@ -12,9 +12,10 @@ public class MyFileWriter {
     
         System.out.println("Total size of all files: ...TBD... bytes");
     }
-    
+
     public static void main(String[] args) {
         String data = "Hello, World!";
+        System.out.println(data);
         String fileName1 = "example1.txt";
         String fileName2 = "example2.txt";
         String fileName3 = "example3.txt";
