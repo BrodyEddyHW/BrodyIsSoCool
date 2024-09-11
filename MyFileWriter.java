@@ -7,7 +7,12 @@ public class MyFileWriter {
         File file = new File (fileName);
         System.out.print(file.length());
     }
-
+    
+    private static void printTotalFileSize(String... fileNames) {
+    
+        System.out.println("Total size of all files: ...TBD... bytes");
+    }
+    
     public static void main(String[] args) {
         String data = "Hello, World!";
         String fileName1 = "example1.txt";
